@@ -4,17 +4,31 @@
 		(blueprintCreated)="onBlueprintAdded($event)"></app-cockpit>
 	<div class="row">
 		<div class="col-12">
+			<button class="btn btn-primary" (click)="onChangeFirstElement()">Change first element</button>
+			<button class="btn btn-danger" (click)="onDestroyFirstElement()">Destroy first element</button>
 			<app-server-element *ngFor="let element of serverElements"
-			[srvElement]="element">
-				<p>
-					<strong *ngIf="element.type === 'server'" style="color: red">
+			[srvElement]="element" [name]="element.name">
+				<p #contentParagraph>
+					<strong *appUnless="element.type === 'blueprint'" [appBetterHightlight]="'red'" [defaultColor]="'yellow'">
 						{{element.content}}
 					</strong>
+					<!-- <ng-template [ngIf]="element.type === 'server'">
+						<div>
+							<strong [appBetterHightlight]="'red'" [defaultColor]="'yellow'">
+								{{element.content}}
+							</strong>
+						</div>
+					</ng-template> -->
 					<em *ngIf="element.type === 'blueprint'">
 						{{element.content}}
 					</em>
 				</p>
 			</app-server-element>
+			<div [ngSwitch]="value">
+				<p *ngSwitchCase="5">value is 5</p>
+				<p *ngSwitchCase="10">value is 10</p>
+				<p *ngSwitchDefault>value is default</p>
+			</div>
 		</div>
 	</div>
 </div>
