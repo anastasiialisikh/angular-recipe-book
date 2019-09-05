@@ -4,7 +4,10 @@
       <input type="text" class="form-control mb-2" #serverName>
       <button class="btn btn-outline-dark" (click)="onAddServer(serverName.value)">Add Server</button>
       <hr>
-      <div></div>
+      <p>
+        <button class="btn btn-outline-secondary mr-2" (click)="onSaveServer()">Save Servers</button>
+        <button class="btn btn-outline-secondary" (click)="onGetServer()">Get Servers</button>
+      </p>
       <ul class="list-group" >
         <li class="list-group-item" *ngFor="let server of servers">
           {{ server.name }} (ID: {{ server.id }})
