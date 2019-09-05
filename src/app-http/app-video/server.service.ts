@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 @Injectable()
 export class ServerService {
@@ -27,7 +28,16 @@ export class ServerService {
             server.name = 'han solo: ' + server.name;
             return server;
           });
-        } )
+        } ),
+        catchError(
+          (error: Response) => {
+            return throwError('something went wrong');
+          }
+        )
       );
+  }
+
+  getAppName() {
+    return this.http.get('https://angular-course-http-bcc9d.firebaseio.com/appName.json');
   }
 }
