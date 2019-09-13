@@ -10,11 +10,11 @@
 </div>
 <div class="row">
   <div class="col-12">
-    <div class="btn-group">
-      <button class="btn btn-secondary dropdown-toggle">
+    <div class="btn-group" appDropdown #dropdown="appDropdown">
+      <button class="btn btn-secondary dropdown-toggle" addDropdownToggle>
         Manage Recipe
       </button>
-      <div class="dropdown-menu">
+      <div class="dropdown-menu" [ngClass]="{'show': dropdown.toggle}">
         <a href="#" class="dropdown-item">To Shoping List</a>
         <a href="#" class="dropdown-item">Edit Recipe</a>
         <a href="#" class="dropdown-item">Delete Recipe</a>

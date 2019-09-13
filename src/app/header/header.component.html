@@ -10,11 +10,11 @@
       <div class="navbar-nav">
         <a href="#" class="nav-item nav-link active" (click)="openRecepes()">Recipes</a>
         <a href="#" class="nav-item nav-link" (click)="openShoppingList()">Shopping List</a>
-        <div class="nav-item dropdown">
-          <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="nav-item dropdown" appDropdown #dropdown="appDropdown">
+          <a href="#" class="nav-link dropdown-toggle">
             Data
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu"  [ngClass]="{'show': dropdown.toggle}">
             <a class="dropdown-item" href="#">Save Data</a>
             <a class="dropdown-item" href="#">Fetch Data</a>
           </div>
