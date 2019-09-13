@@ -1,7 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <app-shoping-edit></app-shoping-edit>
+      <app-shoping-edit
+        (ingredientCreated)="onIngredientCreated($event)">
+      </app-shoping-edit>
       <hr>
       <ul class="list-group">
         <a
