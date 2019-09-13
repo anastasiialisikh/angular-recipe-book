@@ -6,4 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  currentTab = 'recipes';
+
+  onSelectCurrentTab(currentTab: string) {
+    this.currentTab = currentTab;
+  }
 }
