@@ -8,8 +8,21 @@
 
     <div class="collapse navbar-collapse" [ngClass]="{'show': headerDropdown.toggle}">
       <div class="navbar-nav">
-        <a href="#" class="nav-item nav-link active" (click)="openRecepes()">Recipes</a>
-        <a href="#" class="nav-item nav-link" (click)="openShoppingList()">Shopping List</a>
+        <a href="#"
+          [routerLink]="['']"
+          routerLinkActive="active"
+          class="nav-item nav-link"
+          (click)="openRecepes()">
+          Recipes
+        </a>
+        <a href="#"
+          [routerLink]="['/shopping']"
+          routerLinkActive="active"
+          class="nav-item nav-link"
+          (click)="openShoppingList()">
+          Shopping List
+        </a>
+
         <div class="nav-item dropdown" appDropdown #dropdown="appDropdown">
           <a href="#" class="nav-link dropdown-toggle">
             Data
