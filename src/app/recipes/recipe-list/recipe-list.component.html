@@ -8,8 +8,7 @@
     <div class="list-group">
       <app-recipe-item
         *ngFor="let recipe of recepies"
-        [recipe]="recipe"
-        (recipeSelected)="onRecipeSelected($event)">
+        [recipe]="recipe">
       </app-recipe-item>
     </div>
   </div>
