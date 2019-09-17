@@ -1,6 +1,7 @@
-<a href="#"
+<a style="cursor: pointer"
   class="list-group-item list-group-item-action"
-  (click)="selectRecipe()">
+  [routerLink]="[index]"
+  routerLinkActive="active list-group-item-dark">
   <div class="d-flex w-100 justify-content-between">
     <div>
         <h5 class="list-group-item-heading">{{ recipe.name }}</h5>

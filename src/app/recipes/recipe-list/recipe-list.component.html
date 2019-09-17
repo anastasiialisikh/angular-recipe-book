@@ -1,14 +1,19 @@
 <div class="row mb-2">
   <div class="col-12">
-    <button class="btn btn-outline-dark">New Recipe</button>
+    <button
+      class="btn btn-outline-dark"
+      routerLink="new">
+      New Recipe
+    </button>
   </div>
 </div>
 <div class="row">
   <div class="col-12">
     <div class="list-group">
       <app-recipe-item
-        *ngFor="let recipe of recepies"
-        [recipe]="recipe">
+        *ngFor="let recipe of recepies; let index=index"
+        [recipe]="recipe"
+        [index]="index">
       </app-recipe-item>
     </div>
   </div>

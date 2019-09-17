@@ -1,35 +1,33 @@
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
   <div class="container" appDropdown #headerDropdown="appDropdown">
-    <a href="#" class="navbar-brand">Recipe Book</a>
+    <a class="navbar-brand">Recipe Book</a>
     <button class="navbar-toggler" type="button" addDropdownToggle>
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" [ngClass]="{'show': headerDropdown.toggle}">
       <div class="navbar-nav">
-        <a href="#"
-          [routerLink]="['']"
+        <a
+          [routerLink]="['/recipes']"
           routerLinkActive="active"
-          class="nav-item nav-link"
-          (click)="openRecepes()">
+          class="nav-item nav-link">
           Recipes
         </a>
-        <a href="#"
-          [routerLink]="['/shopping']"
+        <a
+          [routerLink]="['/shopping-list']"
           routerLinkActive="active"
-          class="nav-item nav-link"
-          (click)="openShoppingList()">
+          class="nav-item nav-link">
           Shopping List
         </a>
 
         <div class="nav-item dropdown" appDropdown #dropdown="appDropdown">
-          <a href="#" class="nav-link dropdown-toggle">
+          <a class="nav-link dropdown-toggle">
             Data
           </a>
-          <div class="dropdown-menu"  [ngClass]="{'show': dropdown.toggle}">
-            <a class="dropdown-item" href="#">Save Data</a>
-            <a class="dropdown-item" href="#">Fetch Data</a>
+          <div class="dropdown-menu" [ngClass]="{'show': dropdown.toggle}">
+            <a class="dropdown-item">Save Data</a>
+            <a class="dropdown-item">Fetch Data</a>
           </div>
         </div>
       </div>
