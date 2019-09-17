@@ -22,7 +22,7 @@ export class RecipeEditComponent implements OnInit {
           this.editMode = !!params.id;
           console.log(this.editMode);
         }
-      )
+      );
   }
 
 }
