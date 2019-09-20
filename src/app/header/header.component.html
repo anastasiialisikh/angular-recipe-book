@@ -26,7 +26,8 @@
             Data
           </a>
           <div class="dropdown-menu" [ngClass]="{'show': dropdown.toggle}">
-            <a class="dropdown-item">Save Data</a>
+            <a class="dropdown-item"
+              (click)="onSaveData()">Save Data</a>
             <a class="dropdown-item">Fetch Data</a>
           </div>
         </div>

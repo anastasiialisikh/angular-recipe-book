@@ -74,15 +74,13 @@ export class RecipeEditComponent implements OnInit {
   }
 
   onAddIngredient() {
-    // tslint:disable-next-line: no-unused-expression
-    (this.recipeForm.get('ingredients').push(
-     this.createIngredientControl()
-    ) as FormArray);
+    (this.recipeForm.get('ingredients') as FormArray)
+      .push(this.createIngredientControl());
   }
 
   onDeleteIngredient(index: number) {
-    // tslint:disable-next-line: no-unused-expression
-    (this.recipeForm.get('ingredients').removeAt(index) as FormArray);
+    (this.recipeForm.get('ingredients') as FormArray)
+      .removeAt(index);
   }
 
   private createIngredientControl(name = null, amount = null) {
