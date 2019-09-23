@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataStorageService } from '../shared/data-storage.service';
 import { Recipe } from '../recipes/recipe.modal';
 import { RecipeService } from '../recipes/recipe.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,10 @@ import { RecipeService } from '../recipes/recipe.service';
 export class HeaderComponent implements OnInit {
   constructor(
     private dataStorageService: DataStorageService,
-    private recipeService: RecipeService) { }
+    private recipeService: RecipeService,
+    private router: Router
+  ) {}
+
   ngOnInit() {
   }
 
@@ -30,6 +34,10 @@ export class HeaderComponent implements OnInit {
     .subscribe(
       (recipes: Recipe[]) => {
         this.recipeService.setRecipes(recipes);
+      },
+      error => {
+        console.log('handle error here');
+        this.router.navigate(['/signin']);
       }
     );
   }
