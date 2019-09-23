@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DataStorageService } from '../shared/data-storage.service';
-import { Subscription } from 'rxjs';
+import { Recipe } from '../recipes/recipe.modal';
+import { RecipeService } from '../recipes/recipe.service';
 
 @Component({
   selector: 'app-header',
@@ -8,22 +9,28 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./header.component.css'],
   providers: [DataStorageService]
 })
-export class HeaderComponent implements OnInit, OnDestroy {
-  constructor(private dataStorageService: DataStorageService) { }
-  subscription: Subscription;
+export class HeaderComponent implements OnInit {
+  constructor(
+    private dataStorageService: DataStorageService,
+    private recipeService: RecipeService) { }
   ngOnInit() {
   }
 
   onSaveData() {
-    this.subscription = this.dataStorageService.storeRecipes()
+    this.dataStorageService.storeRecipes()
       .subscribe(
-        (data) => {
-          console.log(data);
+        (responce: Response) => {
+          console.log(responce);
         }
       );
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+  onFetchData() {
+    this.dataStorageService.fetchRecipes()
+    .subscribe(
+      (recipes: Recipe[]) => {
+        this.recipeService.setRecipes(recipes);
+      }
+    );
   }
 }

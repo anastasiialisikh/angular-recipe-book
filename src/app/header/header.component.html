@@ -21,14 +21,25 @@
           Shopping List
         </a>
 
+        <a
+          (click)="onStop()"
+          class="nav-item nav-link">
+          Stop
+        </a>
+
         <div class="nav-item dropdown" appDropdown #dropdown="appDropdown">
           <a class="nav-link dropdown-toggle">
             Data
           </a>
           <div class="dropdown-menu" [ngClass]="{'show': dropdown.toggle}">
             <a class="dropdown-item"
-              (click)="onSaveData()">Save Data</a>
-            <a class="dropdown-item">Fetch Data</a>
+              (click)="onSaveData()">
+              Save Data
+            </a>
+            <a class="dropdown-item"
+              (click)="onFetchData()">
+              Fetch Data
+            </a>
           </div>
         </div>
       </div>
