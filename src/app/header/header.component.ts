@@ -3,6 +3,7 @@ import { DataStorageService } from '../shared/data-storage.service';
 import { Recipe } from '../recipes/recipe.modal';
 import { RecipeService } from '../recipes/recipe.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     private dataStorageService: DataStorageService,
     private recipeService: RecipeService,
-    private router: Router
+    private router: Router,
+    public authService: AuthService
   ) {}
 
   ngOnInit() {
@@ -40,5 +42,9 @@ export class HeaderComponent implements OnInit {
         this.router.navigate(['/signin']);
       }
     );
+  }
+
+  onSignout() {
+    this.authService.logoutUser();
   }
 }

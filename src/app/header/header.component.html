@@ -23,21 +23,33 @@
 
       </div>
       <div class="navbar-nav">
+        <ng-template [ngIf]="!authService.isAuthenticated()">
+          <a
+            [routerLink]="['/signup']"
+            routerLinkActive="active"
+            class="nav-item nav-link">
+            Register
+          </a>
+
+          <a
+            [routerLink]="['/signin']"
+            routerLinkActive="active"
+            class="nav-item nav-link">
+            Sign In
+          </a>
+        </ng-template>
         <a
-          [routerLink]="['/signup']"
-          routerLinkActive="active"
-          class="nav-item nav-link">
-          Register
+          class="nav-item nav-link"
+          *ngIf="authService.isAuthenticated()"
+          (click)="onSignout()">
+          Sign Out
         </a>
 
-        <a
-          [routerLink]="['/signin']"
-          routerLinkActive="active"
-          class="nav-item nav-link">
-          Sign In
-        </a>
-
-        <div class="nav-item dropdown" appDropdown #dropdown="appDropdown">
+        <div
+          class="nav-item dropdown"
+          appDropdown
+          #dropdown="appDropdown"
+          *ngIf="authService.isAuthenticated()">
           <a class="nav-link dropdown-toggle">
             Data
           </a>
