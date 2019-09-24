@@ -18,15 +18,16 @@ export class DataStorageService {
   ) {}
 
   storeRecipes() {
+    const token = this.authService.getToken();
+
     return this.http.put(
-      this.recipeUrl,
+      `${this.recipeUrl}?auth=${token}`,
       this.recipeService.getRecipes()
     );
   }
 
   fetchRecipes() {
     const token = this.authService.getToken();
-    console.log(token);
 
     return this.http.get(`${this.recipeUrl}?auth=${token}`)
       .pipe(
