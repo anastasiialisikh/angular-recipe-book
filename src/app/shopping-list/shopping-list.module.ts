@@ -17,4 +17,8 @@ import { FormsModule } from '@angular/forms';
     ShoppingListRoutingModule
   ]
 })
-export class ShoppingListModule {}
+export class ShoppingListModule {
+  constructor() {
+    console.log('shopping-list constructor');
+  }
+}
