@@ -26,8 +26,7 @@ import { SharedModule } from '../shared/shared.module';
     RecipesRoutingModule,
     SharedModule
   ],
-  exports: [],
-  bootstrap: [RecipesComponent]
+  exports: []
 })
 export class RecipesModule {
   constructor() {

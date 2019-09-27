@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { DataStorageService } from '../shared/data-storage.service';
-import { Recipe } from '../recipes/recipe.modal';
-import { RecipeService } from '../recipes/recipe.service';
+import { DataStorageService } from '../../shared/data-storage.service';
+import { Recipe } from '../../recipes/recipe.modal';
+import { RecipeService } from '../../recipes/recipe.service';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth/auth.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-header',
